@@ -164,6 +164,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         updateShippingNotice();
 
+        // Pixel tracking: AddToCart
+        if (typeof fbq === 'function') {
+            fbq('track', 'AddToCart');
+        }
+        if (typeof ttq === 'object') {
+            ttq.track('AddToCart');
+        }
+
         if (cartDrawer) {
             cartDrawer.classList.add('open');
         }
@@ -355,6 +363,26 @@ document.addEventListener('DOMContentLoaded', () => {
             if (formError) {
                 formError.style.color = '#10b981'; // Green success color
                 formError.innerText = `¡Pedido #${orderId} registrado! Redirigiendo a WhatsApp...`;
+            }
+
+            const numericPrice = parseFloat(totalPrice.replace(/[^\d.]/g, '')) || 0;
+
+            // Tracking: Meta Purchase
+            if (typeof fbq === 'function') {
+                fbq('track', 'Purchase', {
+                    value: numericPrice,
+                    currency: 'PEN',
+                    content_name: promoText
+                });
+            }
+
+            // Tracking: TikTok CompletePayment
+            if (typeof ttq === 'object') {
+                ttq.track('CompletePayment', {
+                    value: numericPrice,
+                    currency: 'PEN',
+                    content_name: promoText
+                });
             }
             
             setTimeout(() => {
