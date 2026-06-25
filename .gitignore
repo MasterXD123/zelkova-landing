@@ -1,0 +1,5 @@
+# Ignorar plantilla de ejemplo e históricos locales
+reloj-ejemplo.html
+*.log
+.DS_Store
+node_modules/
