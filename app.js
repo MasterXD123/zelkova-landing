@@ -339,9 +339,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 : 'Transferencia Directa (BCP/BBVA/Interbank/Yape)';
                 
             const orderId = 'NG-' + Math.floor(100000 + Math.random() * 900000);
-            const whatsappNumber = '51910352290'; 
+            const whatsappNumber = '51935317395'; 
             
-            const message = `*NUEVO PEDIDO EN ZELKOVA PERU*\n` +
+            const message = `*NUEVO PEDIDO EN ZELKOVA SHOP PERU*\n` +
                             `-----------------------------------------\n` +
                             `*Pedido ID:* #${orderId}\n\n` +
                             `*Producto:* ${promoText}\n` +
@@ -411,7 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const optComprar = document.getElementById('wa-opt-comprar');
         const optDuda = document.getElementById('wa-opt-duda');
         const optConsulta = document.getElementById('wa-opt-consulta');
-        const whatsappNumber = '51910352290';
+        const whatsappNumber = '51935317395';
         
         if (optComprar) {
             optComprar.addEventListener('click', () => {
